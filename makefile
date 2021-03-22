@@ -5,20 +5,20 @@
 CXX=g++
 CPPFLAGS=--std=c++17
 
-DEPS=recursion.hpp lib/catch.hpp
-OBJ=main.o recursion.o tests.o
+DEPS=sudoku.hpp lib/catch.hpp
+OBJ=main.o sudoku.o tests.o
 
 all: clean test
 
 %.o: %.cpp $(DEPS)
 	$(CXX) -c -o $@ $< $(CPPFLAGS)
 
-exercise2: $(OBJ)
+exercise3: $(OBJ)
 	$(CXX) -o $@ $^ $(CPPFLAGS)
 
-test: exercise2
+test: exercise3
 	# executes all tests
-	./exercise2
+	./exercise3
 
 clean:
-	rm -f exercise2
+	rm -f exercise3

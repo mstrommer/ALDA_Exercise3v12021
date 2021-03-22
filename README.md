@@ -1,4 +1,4 @@
-# Exercise 2
+# Exercise 3
 
 ## Problem Description
 
@@ -14,22 +14,22 @@ See Moodle course and source code TODO instructions for details.
 
 ## Instructions
 
-- You can ONLY change files `main.cpp` & `recursion.cpp`!
+- You can ONLY change files `main.cpp` & `sudoku.cpp`!
    * Your implementation should be in C programming language, only.
 
 Explanations for the other files:
 
 - file `tests.cpp` has all tests for the activity (DO NOT CHANGE!)
 - file `catch.hpp` has the testing library  CATCH2 (DO NOT CHANGE!)
-- file `recursion.hpp` contains the prototype definitions for `recursion.cpp` (DO NOT CHANGE!)
+- file `sudoku.hpp` contains the prototype definitions for `sudoku.cpp` (DO NOT CHANGE!)
 - file `makefile` has the commands for executing activity (DO NOT CHANGE!)
-- file  `exercise2` will be generated after compiling (if you want to test locally, just execute it)
+- file  `exercise3` will be generated after compiling (if you want to test locally, just execute it)
 
 ## Commands for Local Testing
 
 - Open a console / terminal window
 - Command to build and execute tests: `make`
-    * If executable is built already, just type: `./exercise2`
+    * If executable is built already, just type: `./exercise3`
 - Or use your fully fledged IDE ;) 
 
 ## Notes
