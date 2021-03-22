@@ -6,17 +6,40 @@
 #include "lib/catch.hpp"
 #include "sudoku.hpp"
 #include <string.h>
-#include <math.h>
 
 
 // =====================
-// tests for exercise 1
+// Sudoku Test
 // ---------------------
 
-TEST_CASE("Test1", "[h]")
+TEST_CASE("Test1", "Sudoku")
 {
-    float expected = -1.0;
-    int n = 0;
-    INFO("Testing default (h(0) = 0)");
-    REQUIRE(fabs(expected - h(n)) < 0.01 );
+    int actual[SIZE][SIZE];
+    int initial[SIZE][SIZE] = {
+        {0, 1, 0, 0, 0, 9, 0, 5, 0},
+        {0, 9, 0, 0, 0, 0, 4, 8, 0},
+        {0, 6, 0, 1, 0, 4, 0, 0, 0},
+        {0, 0, 5, 0, 0, 0, 9, 3, 0},
+        {0, 0, 0, 7, 0, 2, 0, 0, 0},
+        {0, 2, 1, 0, 0, 0, 8, 0, 0},
+        {4, 0, 0, 0, 8, 0, 6, 0, 9},
+        {0, 0, 0, 0, 6, 0, 5, 0, 3},
+        {2, 0, 0, 0, 3, 0, 0, 0, 0},
+    };
+    int expected[SIZE][SIZE] = {
+        {3, 1, 4, 8, 7, 9, 2, 5, 6},
+        {5, 9, 7, 3, 2, 6, 4, 8, 1},
+        {8, 6, 2, 1, 5, 4, 3, 9, 7},
+        {7, 4, 5, 6, 1, 8, 9, 3, 2},
+        {9, 3, 8, 7, 4, 2, 1, 6, 5},
+        {6, 2, 1, 5, 9, 3, 8, 7, 4},
+        {4, 7, 3, 2, 8, 5, 6, 1, 9},
+        {1, 8, 9, 4, 6, 7, 5, 2, 3},
+        {2, 5, 6, 9, 3, 1, 7, 4, 8},
+    };
+    init(initial);
+    solve(0,0);
+    getResult(actual);
+    INFO("Testing with a valid Sudoku.");
+    REQUIRE(memcmp(actual, expected, sizeof(initial)) == 0);
 }

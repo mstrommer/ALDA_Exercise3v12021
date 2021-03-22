@@ -6,7 +6,7 @@
  *
  */
 
-#include "sudoku.h"
+#include "sudoku.hpp"
 #include <stdio.h>
 #include <stdlib.h>
 #include <memory.h>
@@ -22,6 +22,11 @@ int initial[SIZE][SIZE];
 void init(int begin[SIZE][SIZE]) {
 	memcpy(field, begin, SIZE * SIZE * sizeof(int));
 	memcpy(initial, begin, SIZE * SIZE * sizeof(int));
+}
+
+/* Retrieves the solution. NEEDED FOR AUTO-TESTING PURPOSES. */
+void getResult(int result[SIZE][SIZE]){
+    memcpy(result, field, SIZE * SIZE * sizeof(int));
 }
 
 /* really pretty prints the sudoku array */

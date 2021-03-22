@@ -13,6 +13,7 @@
 #define SQRT_SIZE 3
 
 void init(int begin[SIZE][SIZE]);
+void getResult(int result[SIZE][SIZE]);
 void print();
 int checkValueInField(int value, int row, int col);
 int setValueInField(int value, int row, int col);

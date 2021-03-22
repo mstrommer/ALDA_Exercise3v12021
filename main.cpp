@@ -1,7 +1,7 @@
 #define CATCH_CONFIG_RUNNER
 #define TEST 1 // Always change to 1 before your final submission to Github Classroom.
 #include "lib/catch.hpp"
-#include "recursion.hpp"
+#include "sudoku.hpp"
 #include <stdlib.h>
 
 // DO NOT CHANGE THIS METHOD
@@ -11,36 +11,16 @@ int runCatchTests(int argc, char* const argv[])
 }
 
 /*
- Test your C knowledge in the main function, but leave the very last lines of code unchanged. 
+ Test your C knowledge in the main function, but leave the very last lines of code unchanged. Also, DON'T add any additional return statements.
  */
 int main(int argc, char* const argv[] ){
-    // TODO Call your functions and experiment with C
-    
     // =====================
-    // Exercise 1
+    // SUDOKU
     // ---------------------
-    // read some int n from the console
-    // or simply set a variable
-    // call function h within a printf statement to verify its result
+    // Test your implemenation here (game[][], init, solve, print):
     
     
-    
-    // =====================
-    // Exercise 2
-    // ---------------------
-    // Initialize a char array with some text
-    // call isPalindrom and save its result
-    // print the result of the method call
-   
-
-    
-    // =====================
-    // Exercise 3
-    // ---------------------
-    // call isPrime with a positive, natural number
-    // print the result of the method call
-    
-
+  
     
     // DO NOT CHANGE CODE AFTER THIS LINE
     // This is where automatic testing starts, when the define macro constant is set to 1.
