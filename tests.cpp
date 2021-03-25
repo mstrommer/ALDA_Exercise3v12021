@@ -9,10 +9,43 @@
 
 
 // =====================
-// Sudoku Test
+// Sudoku Testcases
 // ---------------------
 
 TEST_CASE("Test1", "Sudoku")
+{
+    int actual[SIZE][SIZE];
+    int initial[SIZE][SIZE] = {
+        {0, 1, 0, 0, 0, 9, 0, 5, 0},
+        {0, 9, 0, 0, 0, 0, 4, 8, 0},
+        {0, 6, 0, 1, 0, 4, 0, 0, 0},
+        {0, 0, 5, 0, 0, 0, 9, 3, 0},
+        {0, 0, 0, 7, 0, 2, 0, 0, 0},
+        {0, 2, 1, 0, 0, 0, 8, 0, 0},
+        {4, 0, 0, 0, 8, 0, 6, 0, 9},
+        {0, 0, 0, 0, 6, 0, 5, 0, 3},
+        {2, 0, 0, 0, 3, 0, 0, 0, 0},
+    };
+    int expected[SIZE][SIZE] = {
+        {3, 1, 4, 8, 2, 9, 7, 5, 0},
+        {0, 9, 0, 0, 0, 0, 4, 8, 0},
+        {0, 6, 0, 1, 0, 4, 0, 0, 0},
+        {0, 0, 5, 0, 0, 0, 9, 3, 0},
+        {0, 0, 0, 7, 0, 2, 0, 0, 0},
+        {0, 2, 1, 0, 0, 0, 8, 0, 0},
+        {4, 0, 0, 0, 8, 0, 6, 0, 9},
+        {0, 0, 0, 0, 6, 0, 5, 0, 3},
+        {2, 0, 0, 0, 3, 0, 0, 0, 0},
+    };
+    init(initial);
+    solve(0,0);
+    getResult(actual);
+    INFO("Test Case: solution helper. If your Sudoku Solver gets 'stuck' in the first row, consider using the remove function at some point in your algorithm.");
+    REQUIRE(memcmp(actual, expected, sizeof(initial)) != 0);
+}
+
+
+TEST_CASE("Test2", "Sudoku")
 {
     int actual[SIZE][SIZE];
     int initial[SIZE][SIZE] = {
@@ -40,6 +73,39 @@ TEST_CASE("Test1", "Sudoku")
     init(initial);
     solve(0,0);
     getResult(actual);
-    INFO("Testing with a valid Sudoku.");
+    INFO("Test Case: valid Sudoku board failed.");
+    REQUIRE(memcmp(actual, expected, sizeof(initial)) == 0);
+}
+
+
+TEST_CASE("Test3", "Sudoku")
+{
+    int actual[SIZE][SIZE];
+    int initial[SIZE][SIZE] = {
+        {0, 1, 0, 0, 0, 9, 0, 5, 0},
+        {0, 9, 0, 0, 0, 0, 4, 8, 0},
+        {0, 6, 0, 1, 0, 4, 0, 0, 0},
+        {0, 0, 5, 0, 0, 0, 9, 3, 0},
+        {0, 0, 0, 7, 0, 2, 0, 0, 0},
+        {0, 2, 1, 0, 0, 0, 8, 0, 0},
+        {4, 0, 0, 0, 8, 6, 6, 0, 9},
+        {0, 0, 0, 0, 6, 0, 5, 0, 3},
+        {2, 0, 0, 0, 3, 0, 0, 0, 0},
+    };
+    int expected[SIZE][SIZE] = {
+        {0, 1, 0, 0, 0, 9, 0, 5, 0},
+        {0, 9, 0, 0, 0, 0, 4, 8, 0},
+        {0, 6, 0, 1, 0, 4, 0, 0, 0},
+        {0, 0, 5, 0, 0, 0, 9, 3, 0},
+        {0, 0, 0, 7, 0, 2, 0, 0, 0},
+        {0, 2, 1, 0, 0, 0, 8, 0, 0},
+        {4, 0, 0, 0, 8, 6, 6, 0, 9},
+        {0, 0, 0, 0, 6, 0, 5, 0, 3},
+        {2, 0, 0, 0, 3, 0, 0, 0, 0},
+    };
+    init(initial);
+    solve(0,0);
+    getResult(actual);
+    INFO("Test Case: invalid Sudoku board failed.");
     REQUIRE(memcmp(actual, expected, sizeof(initial)) == 0);
 }
