@@ -14,6 +14,7 @@
 
 TEST_CASE("Test1", "Sudoku")
 {
+    int result = 0;
     int actual[SIZE][SIZE];
     int initial[SIZE][SIZE] = {
         {0, 1, 0, 0, 0, 9, 0, 5, 0},
@@ -38,15 +39,20 @@ TEST_CASE("Test1", "Sudoku")
         {2, 0, 0, 0, 3, 0, 0, 0, 0},
     };
     init(initial);
-    solve(0,0);
+    result = solve(0,0);
     getResult(actual);
-    INFO("Test Case: solution helper. If your Sudoku Solver gets 'stuck' in the first row, consider using the remove function at some point in your algorithm.");
-    REQUIRE(memcmp(actual, expected, sizeof(initial)) != 0);
+    if(memcmp(actual, expected, sizeof(initial)) == 0){
+        INFO("Solution helper: if your Sudoku Solver gets 'stuck' in the first row, consider using the remove function at some point in your algorithm.");
+        REQUIRE(memcmp(actual, expected, sizeof(initial)) != 0);
+    }
+    INFO("Test Case: solve hasn't found a solution yet.");
+    REQUIRE(result==1);
 }
 
 
 TEST_CASE("Test2", "Sudoku")
 {
+    int result = 0;
     int actual[SIZE][SIZE];
     int initial[SIZE][SIZE] = {
         {0, 1, 0, 0, 0, 9, 0, 5, 0},
@@ -71,15 +77,18 @@ TEST_CASE("Test2", "Sudoku")
         {2, 5, 6, 9, 3, 1, 7, 4, 8},
     };
     init(initial);
-    solve(0,0);
+    result = solve(0,0);
     getResult(actual);
     INFO("Test Case: valid Sudoku board failed.");
     REQUIRE(memcmp(actual, expected, sizeof(initial)) == 0);
+    INFO("Test Case: return value not correct.");
+    REQUIRE(result == 1);
 }
 
 
 TEST_CASE("Test3", "Sudoku")
 {
+    int result = 0;
     int actual[SIZE][SIZE];
     int initial[SIZE][SIZE] = {
         {0, 1, 0, 0, 0, 9, 0, 5, 0},
@@ -104,8 +113,10 @@ TEST_CASE("Test3", "Sudoku")
         {2, 0, 0, 0, 3, 0, 0, 0, 0},
     };
     init(initial);
-    solve(0,0);
+    result = solve(0,0);
     getResult(actual);
     INFO("Test Case: invalid Sudoku board failed.");
     REQUIRE(memcmp(actual, expected, sizeof(initial)) == 0);
+    INFO("Test Case: return value not correct.");
+    REQUIRE(result == 0);
 }
